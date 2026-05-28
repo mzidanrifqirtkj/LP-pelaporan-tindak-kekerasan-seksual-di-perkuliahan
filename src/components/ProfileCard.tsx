@@ -31,7 +31,7 @@ export default function ProfileCard({ name, role, imageUrl, index }: ProfileCard
         <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity blur-md" />
       </div>
       <h3 className="font-semibold text-white light:text-slate-800">{name}</h3>
-      <p className="text-sm text-slate-400 light:text-slate-500 mt-1">{role}</p>
+      <p className="text-sm text-slate-400 light:text-slate-600 mt-1">{role}</p>
     </motion.div>
   );
 }

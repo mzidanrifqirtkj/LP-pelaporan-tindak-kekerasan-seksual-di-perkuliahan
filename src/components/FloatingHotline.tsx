@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import { Phone, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import content from '@/data/content.json';
+
+const h = content.floatingHotline;
+const g = content.global;
 
 export default function FloatingHotline() {
   const [open, setOpen] = useState(false);
@@ -18,17 +22,17 @@ export default function FloatingHotline() {
             className="glass-card rounded-2xl shadow-xl p-5 w-72"
           >
             <p className="text-sm font-semibold text-white light:text-slate-800 mb-2">
-              Hotline PPKPT
+              {h.title}
             </p>
-            <p className="text-xs text-slate-400 light:text-slate-500 mb-3">
-              Hubungi kami kapan saja, laporan Anda dijamin kerahasiaannya.
+            <p className="text-xs text-slate-400 light:text-slate-600 mb-3">
+              {h.description}
             </p>
             <a
-              href="tel:0821-XXXX-XXXX"
+              href={`tel:${h.phone}`}
               className="flex items-center gap-2 bg-accent text-white px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-accent-hover transition-colors w-full justify-center"
             >
               <Phone size={16} />
-              0821-XXXX-XXXX
+              {h.phone}
             </a>
           </motion.div>
         )}

@@ -9,7 +9,7 @@ interface BreadcrumbItem {
 export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
     <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-      <ol className="flex items-center gap-1.5 text-sm text-slate-400 light:text-slate-500">
+      <ol className="flex items-center gap-1.5 text-sm text-slate-400 light:text-slate-600">
         <li>
           <Link href="/" className="hover:text-primary transition-colors">
             <Home size={14} />

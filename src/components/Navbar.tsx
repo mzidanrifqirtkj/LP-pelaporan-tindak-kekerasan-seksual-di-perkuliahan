@@ -1,26 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
 import { Menu, X, Moon, Sun, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import content from '@/data/content.json';
 
-const navLinks = [
-  { label: 'Beranda', href: '/' },
-  { label: 'Tentang', href: '/about' },
-  { label: 'Struktur', href: '/struktur' },
-  { label: 'Alur Pelaporan', href: '/alur' },
-  { label: 'Dokumen', href: '/dokumen' },
-  { label: 'FAQ', href: '/faq' },
-];
+const g = content.global;
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLight, setIsLight] = useState(false);
   const pathname = usePathname();
-  const isLapor = pathname === '/lapor';
+  const isLapor = pathname === g.laporHref;
 
   useEffect(() => {
     const stored = localStorage.getItem('theme');
@@ -38,29 +32,27 @@ export default function Navbar() {
   };
 
   const escapeSite = () => {
-    window.location.href = 'https://www.google.com';
+    window.location.href = g.escapeUrl;
   };
 
   return (
     <>
-      {/* Quick Escape */}
       <button
         onClick={escapeSite}
         className="fixed top-2 right-2 z-50 bg-slate-900/80 text-white text-xs px-3 py-1.5 rounded flex items-center gap-1.5 hover:bg-slate-900 transition-colors"
         aria-label="Keluar dari situs dengan cepat"
       >
         <ExternalLink size={12} />
-        Exit
+        {g.escapeLabel}
       </button>
 
       <header className="sticky top-0 z-40 bg-white/5 backdrop-blur-xl border-b border-white/10 light:bg-white/80 light:border-b light:border-black/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <Link href="/" className="flex items-center group">
               <Image
                 src="/images/logo-ppkpt.svg"
-                alt="PPKPT"
+                alt={g.siteTitle}
                 width={120}
                 height={36}
                 className="h-9 w-auto"
@@ -68,9 +60,8 @@ export default function Navbar() {
               />
             </Link>
 
-            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1" aria-label="Navigasi utama">
-              {navLinks.map((link) => (
+              {g.navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -85,9 +76,7 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Right Actions */}
             <div className="flex items-center gap-2">
-              {/* Dark Mode Toggle */}
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg text-slate-300 light:text-slate-600 hover:bg-white/10 light:hover:bg-slate-100 transition-colors"
@@ -96,17 +85,15 @@ export default function Navbar() {
                 {isLight ? <Moon size={18} /> : <Sun size={18} />}
               </button>
 
-              {/* Lapor Button */}
               <Link
-                href="/lapor"
+                href={g.laporHref}
                 className={`bg-accent text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-accent-hover transition-colors flex items-center gap-1.5 shadow-sm ${
                   isLapor ? 'ring-2 ring-accent ring-offset-2' : ''
                 }`}
               >
-                Lapor Sekarang
+                {g.laporLabel}
               </Link>
 
-              {/* Hamburger */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="md:hidden p-2 rounded-lg text-slate-300 light:text-slate-600 hover:bg-white/10 light:hover:bg-slate-100 transition-colors"
@@ -119,7 +106,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {menuOpen && (
             <motion.nav
@@ -130,7 +116,7 @@ export default function Navbar() {
               aria-label="Navigasi mobile"
             >
               <div className="px-4 py-3 space-y-1">
-                {navLinks.map((link) => (
+                {g.navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}

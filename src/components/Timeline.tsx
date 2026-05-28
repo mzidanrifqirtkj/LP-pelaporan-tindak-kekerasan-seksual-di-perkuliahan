@@ -3,34 +3,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Phone, Search, Heart, SearchCheck, Scale } from 'lucide-react';
+import content from '@/data/content.json';
 
-const steps = [
-  {
-    icon: Phone,
-    title: 'Penerimaan Laporan',
-    desc: 'Korban atau saksi melaporkan kejadian melalui hotline, form online, atau datang langsung ke Satgas PPKPT. Laporan diterima oleh petugas yang terlatih dan empatik.',
-  },
-  {
-    icon: Search,
-    title: 'Identifikasi & Asesmen Awal',
-    desc: 'Tim melakukan identifikasi awal kasus dan asesmen terhadap kebutuhan korban, termasuk tingkat risiko dan urgensi penanganan.',
-  },
-  {
-    icon: Heart,
-    title: 'Perlindungan & Pendampingan',
-    desc: 'Korban diberikan perlindungan segera, termasuk pendampingan psikologis, hukum, dan medis sesuai kebutuhan. Kerahasiaan identitas dijamin penuh.',
-  },
-  {
-    icon: SearchCheck,
-    title: 'Investigasi & Pengumpulan Bukti',
-    desc: 'Tim investigasi mengumpulkan bukti, memeriksa saksi, dan menyusun kronologi kejadian secara objektif dan profesional.',
-  },
-  {
-    icon: Scale,
-    title: 'Rekomendasi Sanksi / Pemulihan',
-    desc: 'Berdasarkan hasil investigasi, rekomendasi diberikan untuk sanksi terhadap pelaku dan/atau langkah pemulihan bagi korban.',
-  },
-];
+const iconMap: Record<string, any> = { Phone, Search, Heart, SearchCheck, Scale };
 
 export default function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,7 +18,6 @@ export default function Timeline() {
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Animated vertical line */}
       <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-white/10 light:bg-blue-200 hidden sm:block overflow-hidden">
         <motion.div
           className="absolute top-0 left-0 w-full bg-gradient-to-b from-blue-500 to-purple-500"
@@ -52,8 +26,8 @@ export default function Timeline() {
       </div>
 
       <div className="space-y-8 sm:space-y-12">
-        {steps.map((step, i) => {
-          const Icon = step.icon;
+        {content.alur.steps.map((step, i) => {
+          const Icon = iconMap[step.icon] || Phone;
           return (
             <motion.div
               key={i}
@@ -63,7 +37,6 @@ export default function Timeline() {
               transition={{ delay: i * 0.15, type: 'spring', stiffness: 80, damping: 15 }}
               className="relative pl-0 sm:pl-16"
             >
-              {/* Step number with pulse */}
               <motion.div
                 className="hidden sm:flex absolute left-4 -translate-x-1/2 w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full items-center justify-center font-bold text-sm shadow-lg z-10"
                 animate={{ scale: [1, 1.1, 1] }}
@@ -72,7 +45,6 @@ export default function Timeline() {
                 {i + 1}
               </motion.div>
 
-              {/* Content card */}
               <motion.div
                 whileHover={{ y: -3 }}
                 className="glass-card rounded-xl p-5 sm:p-6 hover:bg-white/[0.08] transition-all light:hover:bg-white/90"

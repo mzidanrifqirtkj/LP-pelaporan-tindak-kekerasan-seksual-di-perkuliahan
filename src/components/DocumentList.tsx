@@ -2,13 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FileText, Download, Share2 } from 'lucide-react';
-
-const documents = [
-  { no: 1, name: 'Buku Pedoman PPKPT', desc: 'Panduan lengkap pencegahan dan penanganan kekerasan di perguruan tinggi.' },
-  { no: 2, name: 'SOP Pelaporan Kekerasan', desc: 'Standar operasional prosedur pelaporan dan penanganan kasus kekerasan.' },
-  { no: 3, name: 'Formulir Pengaduan Resmi', desc: 'Formulir standar untuk mengajukan laporan pengaduan kekerasan.' },
-  { no: 4, name: 'Dasar Hukum & Peraturan Rektor', desc: 'Landasan hukum dan peraturan rektor terkait PPKPT.' },
-];
+import content from '@/data/content.json';
 
 export default function DocumentList() {
   const handleDownload = (name: string) => {
@@ -23,9 +17,9 @@ export default function DocumentList() {
 
   return (
     <div className="space-y-4">
-      {documents.map((doc, i) => (
+      {content.dokumen.map((doc, i) => (
         <motion.div
-          key={doc.no}
+          key={i}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -39,12 +33,12 @@ export default function DocumentList() {
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="font-semibold text-white light:text-slate-800">{doc.name}</h3>
-              <p className="text-sm text-slate-400 light:text-slate-500 mt-0.5">{doc.desc}</p>
+              <p className="text-sm text-slate-400 light:text-slate-600 mt-0.5">{doc.desc}</p>
             </div>
             <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => handleShare(doc.name)}
-                className="p-2 rounded-lg text-slate-400 hover:text-blue-300 hover:bg-white/10 transition-colors light:hover:text-primary light:hover:bg-primary/10"
+                className="p-2 rounded-lg text-slate-400 light:text-slate-600 hover:text-blue-300 hover:bg-white/10 transition-colors light:hover:text-primary light:hover:bg-primary/10"
                 aria-label={`Bagikan ${doc.name} ke WhatsApp`}
               >
                 <Share2 size={18} />

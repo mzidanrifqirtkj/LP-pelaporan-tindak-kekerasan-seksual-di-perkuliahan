@@ -16,7 +16,7 @@ export default function AlurPage() {
         <h1 className="text-3xl sm:text-4xl font-bold text-white light:text-slate-800 mb-3">
           Alur Pelaporan
         </h1>
-        <p className="text-slate-400 light:text-slate-500 mb-10 max-w-2xl">
+        <p className="text-slate-400 light:text-slate-600 mb-10 max-w-2xl">
           Proses pelaporan dan penanganan kasus dilakukan secara profesional, cepat, dan menjaga kerahasiaan identitas pelapor.
         </p>
 

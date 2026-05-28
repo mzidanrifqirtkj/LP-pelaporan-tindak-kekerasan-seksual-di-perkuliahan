@@ -16,7 +16,7 @@ export default function DokumenPage() {
         <h1 className="text-3xl sm:text-4xl font-bold text-white light:text-slate-800 mb-3">
           Dokumen Pendukung
         </h1>
-        <p className="text-slate-400 light:text-slate-500 mb-8 max-w-2xl">
+        <p className="text-slate-400 light:text-slate-600 mb-8 max-w-2xl">
           Unduh dokumen-dokumen resmi terkait PPKPT, termasuk buku pedoman, SOP, dan formulir pengaduan.
         </p>
 

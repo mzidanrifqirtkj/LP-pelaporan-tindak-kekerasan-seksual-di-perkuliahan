@@ -8,6 +8,7 @@ import FloatingHotline from "@/components/FloatingHotline";
 import ReadingProgress from "@/components/ReadingProgress";
 import SkipToContent from "@/components/SkipToContent";
 import LenisProvider from "@/components/LenisProvider";
+import content from "@/data/content.json";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,13 +20,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const g = content.global;
 export const metadata: Metadata = {
   title: {
-    default: "PPKPT - Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi",
-    template: "%s | PPKPT",
+    default: `${g.siteTitle} - ${g.siteTagline}`,
+    template: `%s | ${g.siteTitle}`,
   },
-  description:
-    "Pusat informasi Satuan Tugas Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi. Edukasi, alur pelaporan, dan dokumen pendukung.",
+  description: g.siteDescription,
 };
 
 export default function RootLayout({

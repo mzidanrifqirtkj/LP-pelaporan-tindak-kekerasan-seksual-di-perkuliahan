@@ -16,7 +16,7 @@ export default function NotFound() {
         <h1 className="text-4xl font-bold text-white light:text-slate-800 mb-3">
           <span className="gradient-text bg-gradient-to-r from-blue-400 to-purple-400">404</span>
         </h1>
-        <p className="text-slate-400 light:text-slate-500 mb-8 leading-relaxed">
+        <p className="text-slate-400 light:text-slate-600 mb-8 leading-relaxed">
           Maaf, halaman yang Anda cari tidak ditemukan. Mungkin halaman telah dipindahkan atau tidak tersedia.
         </p>
         <Link

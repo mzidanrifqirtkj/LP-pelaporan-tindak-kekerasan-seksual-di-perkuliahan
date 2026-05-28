@@ -22,7 +22,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
         <span className="font-medium text-white light:text-slate-800 pr-4">{question}</span>
         <ChevronDown
           size={18}
-          className={`text-slate-400 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`}
+          className={`text-slate-400 light:text-slate-600 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`}
         />
       </button>
       <AnimatePresence>

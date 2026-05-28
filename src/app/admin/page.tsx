@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronLeft } from 'lucide-react';
 
 export default function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
@@ -78,6 +80,8 @@ function Dashboard({ token: _token }: { token: string }) {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     fetchContent();
@@ -157,44 +161,142 @@ function Dashboard({ token: _token }: { token: string }) {
   }
 
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="w-60 shrink-0 bg-slate-900 border-r border-white/10 flex flex-col">
-        <div className="p-4 border-b border-white/10">
-          <h2 className="font-bold text-white">PPKPT CMS</h2>
-          <p className="text-xs text-slate-500">Content Management</p>
+    <div className="min-h-screen flex">
+      {/* Mobile backdrop */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile sidebar - drawer */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <motion.aside
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ type: 'tween', duration: 0.25 }}
+            className="fixed inset-y-0 left-0 z-50 w-60 bg-slate-900 border-r border-white/10 flex flex-col md:hidden"
+          >
+            <div className="p-4 border-b border-white/10 flex items-center justify-between">
+              <div>
+                <h2 className="font-bold text-white">PPKPT CMS</h2>
+                <p className="text-xs text-slate-500">Content Management</p>
+              </div>
+              <button
+                onClick={() => setSidebarOpen(false)}
+                className="p-1.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition-colors"
+                aria-label="Tutup sidebar"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
+              {sections.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => { setActiveSection(s.id); setSidebarOpen(false); }}
+                  className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                    activeSection === s.id
+                      ? 'bg-primary/30 text-blue-300'
+                      : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </nav>
+            <div className="p-3 border-t border-white/10">
+              <button
+                onClick={handleLogout}
+                className="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors"
+              >
+                🚪 Keluar
+              </button>
+            </div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
+
+      {/* Desktop sidebar - always visible */}
+      <aside className={`hidden md:flex flex-col bg-slate-900 border-r border-white/10 transition-all duration-300 ${
+        sidebarCollapsed ? 'w-16' : 'w-60'
+      }`}>
+        <div className={`p-4 border-b border-white/10 flex items-center gap-3 ${sidebarCollapsed ? 'justify-center' : 'justify-between'}`}>
+          {sidebarCollapsed ? (
+            <span className="text-lg font-bold text-white" title="PPKPT CMS">P</span>
+          ) : (
+            <div>
+              <h2 className="font-bold text-white">PPKPT CMS</h2>
+              <p className="text-xs text-slate-500">Content Management</p>
+            </div>
+          )}
+          <button
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="p-2 rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+            aria-label={sidebarCollapsed ? 'Perluas sidebar' : 'Minimalkan sidebar'}
+          >
+            <ChevronLeft size={18} className={`transition-transform ${sidebarCollapsed ? 'rotate-180' : ''}`} />
+          </button>
         </div>
-        <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
+        <nav className={`flex-1 p-3 space-y-1 overflow-y-auto ${sidebarCollapsed ? 'flex flex-col items-center' : ''}`}>
           {sections.map((s) => (
             <button
               key={s.id}
               onClick={() => setActiveSection(s.id)}
-              className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+              className={`flex items-center gap-3 w-full rounded-lg text-sm transition-colors ${
+                sidebarCollapsed ? 'justify-center p-2' : 'px-3 py-2'
+              } ${
                 activeSection === s.id
                   ? 'bg-primary/30 text-blue-300'
                   : 'text-slate-400 hover:bg-white/5 hover:text-white'
               }`}
+              title={sidebarCollapsed ? s.label : undefined}
             >
-              {s.label}
+              <span className="shrink-0">{s.label.split(' ')[0]}</span>
+              {!sidebarCollapsed && <span className="truncate">{s.label.slice(s.label.indexOf(' ') + 1)}</span>}
             </button>
           ))}
         </nav>
-        <div className="p-3 border-t border-white/10">
+        <div className={`p-3 border-t border-white/10 ${sidebarCollapsed ? 'flex flex-col items-center gap-2' : ''}`}>
           <button
             onClick={handleLogout}
-            className="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors"
+            className={`flex items-center gap-2 rounded-lg text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors ${
+              sidebarCollapsed ? 'justify-center p-2' : 'px-3 py-2 w-full text-left'
+            }`}
+            title={sidebarCollapsed ? 'Keluar' : undefined}
           >
-            🚪 Keluar
+            🚪
+            {!sidebarCollapsed && <span>Keluar</span>}
           </button>
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto p-6">
+      <main className="flex-1 overflow-y-auto p-4 sm:p-6">
         <div className="max-w-4xl mx-auto space-y-6">
-          {/* Header */}
+          {/* Mobile header with hamburger */}
+          <div className="sticky top-0 z-10 flex items-center gap-3 mb-2 md:hidden bg-slate-950/90 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="p-2.5 rounded-lg text-white bg-slate-800 hover:bg-slate-700 ring-1 ring-white/10 transition-colors"
+              aria-label="Buka sidebar"
+            >
+              <Menu size={20} />
+            </button>
+            <h2 className="font-bold text-white text-sm">PPKPT CMS</h2>
+          </div>
+
+          {/* Section header */}
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-white">
+            <h1 className="text-xl sm:text-2xl font-bold text-white">
               {sections.find((s) => s.id === activeSection)?.label}
             </h1>
             <div className="flex items-center gap-3">
@@ -204,7 +306,7 @@ function Dashboard({ token: _token }: { token: string }) {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="bg-accent text-white px-5 py-2 rounded-xl text-sm font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50 flex items-center gap-2"
+                className="bg-accent text-white px-4 sm:px-5 py-2 rounded-xl text-sm font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50 flex items-center gap-2"
               >
                 {saving ? 'Menyimpan...' : '💾 Simpan Semua'}
               </button>

@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import rawContent from '../data/content.json';
 
 export interface Content {
   global: GlobalContent;
@@ -104,17 +105,37 @@ export interface FloatingHotlineContent {
   phone: string;
 }
 
-const contentFilePath = path.join(process.cwd(), 'src', 'data', 'content.json');
+// const contentFilePath = path.join(process.cwd(), 'src', 'data', 'content.json');
 
 export function getContentPath(): string {
-  return contentFilePath;
+  // return contentFilePath;
+  if (process.env.NODE_ENV === 'development') {
+    return 'src/data/content.json';
+  }
+  return '';
 }
 
 export async function getContent(): Promise<Content> {
-  const raw = await fs.readFile(contentFilePath, 'utf-8');
-  return JSON.parse(raw) as Content;
+  // const raw = await fs.readFile(contentFilePath, 'utf-8');
+  // return JSON.parse(raw) as Content;
+  return rawContent as Content;
 }
 
 export async function saveContent(data: Content): Promise<void> {
-  await fs.writeFile(contentFilePath, JSON.stringify(data, null, 2), 'utf-8');
+  // await fs.writeFile(contentFilePath, JSON.stringify(data, null, 2), 'utf-8');
+  try {
+    // Operasi penulisan file HANYA dieksekusi jika berjalan di laptopmu (Node.js environment)
+    if (typeof window === 'undefined' && process.env.NODE_ENV === 'development') {
+      // Menggunakan dynamic import agar compiler Cloudflare tidak membaca modul Node.js ini
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      
+      const contentFilePath = path.join(process.cwd(), 'src', 'data', 'content.json');
+      await fs.writeFile(contentFilePath, JSON.stringify(data, null, 2), 'utf-8');
+      console.log('✅ Konten lokal berhasil diperbarui.');
+    }
+  } catch (error) {
+    console.error('Gagal menyimpan konten:', error);
+    throw new Error('Gagal menulis berkas konten');
+  }
 }

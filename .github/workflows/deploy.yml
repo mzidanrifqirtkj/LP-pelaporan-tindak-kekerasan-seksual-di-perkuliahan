@@ -25,7 +25,7 @@ jobs:
 
       # ✅ LANGKAH UTAMA: Mengubah hasil 'next build' biasa menjadi format Cloudflare Workers
       - name: Build Next.js using Cloudflare Compiler
-        run: npx @cloudflare/next-on-pages
+        run: npx @opennextjs/cloudflare@latest
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3

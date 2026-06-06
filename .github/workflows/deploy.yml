@@ -23,15 +23,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # ✅ LANGKAH UTAMA: Mengubah hasil 'next build' biasa menjadi format Cloudflare Workers
-      - name: Build Next.js using Cloudflare Compiler
-        run: npx @opennextjs/cloudflare@latest
+      # ✅ Tambahkan sub-perintah 'build' agar OpenNext mau memproses Next.js kamu
+      - name: Build Next.js with OpenNext
+        run: npx @opennextjs/cloudflare@latest build
 
+      # ✅ Menggunakan perintah deploy bawaan wrangler untuk mengunggah hasil rakitan OpenNext
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4'
-          # ✅ Arahkan Wrangler ke folder hasil compile otomatis di atas
-          command: deploy .vercel/output/static
+          # ✅ Menyuruh wrangler mengupload folder .open-next ke nama project yang tertera di dashboard kamu
+          command: deploy --name=lp-pelaporan-tindak-kekerasan-seksual-di-perkuliahan

@@ -33,4 +33,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # ✅ Sesuaikan folder deploy ke 'out' jika kamu menggunakan static export Next.js
-          command: pages deploy out --project-name=ppkpt
+          command: pages deploy out --project-name=LP-pelaporan-tindak-kekerasan-seksual-di-perkuliahan

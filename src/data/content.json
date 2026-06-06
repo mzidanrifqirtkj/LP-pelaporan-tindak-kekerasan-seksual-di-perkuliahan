@@ -4,12 +4,30 @@
     "siteTagline": "Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi",
     "siteDescription": "Pusat informasi Satuan Tugas Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi. Edukasi, alur pelaporan, dan dokumen pendukung.",
     "navLinks": [
-      { "label": "Beranda", "href": "/" },
-      { "label": "Tentang", "href": "/about" },
-      { "label": "Struktur", "href": "/struktur" },
-      { "label": "Alur Pelaporan", "href": "/alur" },
-      { "label": "Dokumen", "href": "/dokumen" },
-      { "label": "FAQ", "href": "/faq" }
+      {
+        "label": "Beranda",
+        "href": "/"
+      },
+      {
+        "label": "Tentang",
+        "href": "/about"
+      },
+      {
+        "label": "Struktur",
+        "href": "/struktur"
+      },
+      {
+        "label": "Alur Pelaporan",
+        "href": "/alur"
+      },
+      {
+        "label": "Dokumen",
+        "href": "/dokumen"
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq"
+      }
     ],
     "escapeUrl": "https://www.google.com",
     "escapeLabel": "Exit",
@@ -22,23 +40,62 @@
     "workingHours": "Senin-Jumat, 08.00 - 16.00"
   },
   "hero": {
-    "badge": "Satuan Tugas PPKPT",
+    "badge": "Satuan Tugas PPKPT hhi",
     "headline": "Kawasan Kampus Bebas Kekerasan",
     "description": "Selamat datang di pusat informasi Satgas PPKPT. Bersama kita ciptakan lingkungan kampus yang aman, nyaman, dan kondusif bagi seluruh sivitas akademika.",
     "backgroundImage": "/images/hero-campus.jpg",
     "stats": [
-      { "value": "100+", "label": "Laporan Ditangani" },
-      { "value": "24/7", "label": "Hotline Siap Membantu" },
-      { "value": "Terjamin", "label": "Kerahasiaan & Perlindungan" }
+      {
+        "value": "100+",
+        "label": "Laporan Ditangani"
+      },
+      {
+        "value": "24/7",
+        "label": "Hotline Siap Membantu"
+      },
+      {
+        "value": "Terjamin",
+        "label": "Kerahasiaan & Perlindungan"
+      }
     ],
-    "ctaPrimary": { "label": "Pelajari Lebih Lanjut", "href": "/about" },
-    "ctaSecondary": { "label": "Lapor Sekarang", "href": "/lapor" }
+    "ctaPrimary": {
+      "label": "Pelajari Lebih Lanjut",
+      "href": "/about"
+    },
+    "ctaSecondary": {
+      "label": "Lapor Sekarang",
+      "href": "/lapor"
+    }
   },
   "quicklinks": [
-    { "title": "Tentang PPKPT", "desc": "Pengertian, tujuan, dan ruang lingkup kekerasan di kampus.", "href": "/about", "icon": "Info", "image": "/images/ql-tentang.jpg" },
-    { "title": "Struktur Keanggotaan", "desc": "Kenali satuan tugas dan divisi yang siap membantu Anda.", "href": "/struktur", "icon": "Users", "image": "/images/ql-struktur.jpg" },
-    { "title": "Alur Pelaporan", "desc": "Langkah-langkah jelas dalam proses pelaporan kekerasan.", "href": "/alur", "icon": "Route", "image": "/images/ql-alur.jpg" },
-    { "title": "Dokumen Pendukung", "desc": "Akses buku pedoman, SOP, dan formulir pengaduan.", "href": "/dokumen", "icon": "FileText", "image": "/images/ql-dokumen.jpg" }
+    {
+      "title": "Tentang PPKPT",
+      "desc": "Pengertian, tujuan, dan ruang lingkup kekerasan di kampus.",
+      "href": "/about",
+      "icon": "Info",
+      "image": "/images/ql-tentang.jpg"
+    },
+    {
+      "title": "Struktur Keanggotaan",
+      "desc": "Kenali satuan tugas dan divisi yang siap membantu Anda.",
+      "href": "/struktur",
+      "icon": "Users",
+      "image": "/images/ql-struktur.jpg"
+    },
+    {
+      "title": "Alur Pelaporan",
+      "desc": "Langkah-langkah jelas dalam proses pelaporan kekerasan.",
+      "href": "/alur",
+      "icon": "Route",
+      "image": "/images/ql-alur.jpg"
+    },
+    {
+      "title": "Dokumen Pendukung",
+      "desc": "Akses buku pedoman, SOP, dan formulir pengaduan.",
+      "href": "/dokumen",
+      "icon": "FileText",
+      "image": "/images/ql-dokumen.jpg"
+    }
   ],
   "about": {
     "definition": "Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi (PPKPT) adalah upaya sistematis dan terorganisir untuk mencegah terjadinya berbagai bentuk kekerasan di lingkungan perguruan tinggi serta memberikan penanganan yang tepat dan komprehensif apabila terjadi kasus kekerasan. PPKPT merupakan bagian integral dari sistem manajemen perguruan tinggi yang bertujuan menciptakan lingkungan kampus yang aman, nyaman, dan kondusif bagi seluruh sivitas akademika.",
@@ -50,54 +107,174 @@
       "Memberikan perlindungan kepada korban kekerasan"
     ],
     "scopes": [
-      { "title": "Kekerasan Seksual", "desc": "Pelecehan seksual, eksploitasi, pemaksaan hubungan seksual, atau tindakan bermuatan seksual tanpa persetujuan.", "icon": "Heart", "wide": true },
-      { "title": "Kekerasan Fisik", "desc": "Tindakan yang mengakibatkan cedera fisik, seperti memukul, mendorong, atau tindakan fisik lainnya.", "icon": "Shield" },
-      { "title": "Kekerasan Psikis", "desc": "Intimidasi, ancaman, perundungan (bullying), penghinaan, dan pemaksaan yang berdampak pada psikologis.", "icon": "Brain" },
-      { "title": "Kekerasan Digital", "desc": "Teror atau pelecehan berbasis elektronik/online, termasuk penyebaran konten pribadi tanpa izin.", "icon": "Monitor" },
-      { "title": "Diskriminasi", "desc": "Perlakuan tidak adil berdasarkan suku, agama, gender, disabilitas, atau latar belakang lainnya.", "icon": "UserX" },
-      { "title": "Perundungan (Bullying)", "desc": "Tindakan agresif berulang yang dilakukan oleh individu atau kelompok untuk menyakiti orang lain.", "icon": "Shield", "full": true }
+      {
+        "title": "Kekerasan Seksual",
+        "desc": "Pelecehan seksual, eksploitasi, pemaksaan hubungan seksual, atau tindakan bermuatan seksual tanpa persetujuan.",
+        "icon": "Heart",
+        "wide": true
+      },
+      {
+        "title": "Kekerasan Fisik",
+        "desc": "Tindakan yang mengakibatkan cedera fisik, seperti memukul, mendorong, atau tindakan fisik lainnya.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Kekerasan Psikis",
+        "desc": "Intimidasi, ancaman, perundungan (bullying), penghinaan, dan pemaksaan yang berdampak pada psikologis.",
+        "icon": "Brain"
+      },
+      {
+        "title": "Kekerasan Digital",
+        "desc": "Teror atau pelecehan berbasis elektronik/online, termasuk penyebaran konten pribadi tanpa izin.",
+        "icon": "Monitor"
+      },
+      {
+        "title": "Diskriminasi",
+        "desc": "Perlakuan tidak adil berdasarkan suku, agama, gender, disabilitas, atau latar belakang lainnya.",
+        "icon": "UserX"
+      },
+      {
+        "title": "Perundungan (Bullying)",
+        "desc": "Tindakan agresif berulang yang dilakukan oleh individu atau kelompok untuk menyakiti orang lain.",
+        "icon": "Shield",
+        "full": true
+      }
     ],
     "stats": [
-      { "label": "Jenis Kekerasan", "value": 6 },
-      { "label": "Divisi Satgas", "value": 8 },
-      { "label": "Laporan Ditangani", "value": 100, "suffix": "+" },
-      { "label": "Jam Pelayanan", "value": 24, "suffix": "/7" }
+      {
+        "label": "Jenis Kekerasan",
+        "value": 6
+      },
+      {
+        "label": "Divisi Satgas",
+        "value": 8
+      },
+      {
+        "label": "Laporan Ditangani",
+        "value": 100,
+        "suffix": "+"
+      },
+      {
+        "label": "Jam Pelayanan",
+        "value": 24,
+        "suffix": "/7"
+      }
     ]
   },
   "team": [
-    { "name": "Prof. Dr. Ahmad Syarif", "role": "Ketua Satgas PPKPT" },
-    { "name": "Dr. Siti Rahmawati", "role": "Wakil Ketua Satgas" },
-    { "name": "Rina Puspita, M.Psi.", "role": "Divisi Pendampingan Psikologis" },
-    { "name": "Dr. Hendra Gunawan, S.H.", "role": "Divisi Hukum & Advokasi" },
-    { "name": "Fajar Nugroho, S.Sos.", "role": "Divisi Sosialisasi & Edukasi" },
-    { "name": "Dr. Nining Triani", "role": "Divisi Pendampingan Medis" },
-    { "name": "Ahmad Fauzi, S.Kom.", "role": "Divisi Teknologi & Digital" },
-    { "name": "Rini Hartati, S.Pd.", "role": "Divisi Administrasi & Data" }
+    {
+      "name": "Prof. Dr. Ahmad Syarif",
+      "role": "Ketua Satgas PPKPT"
+    },
+    {
+      "name": "Dr. Siti Rahmawati",
+      "role": "Wakil Ketua Satgas"
+    },
+    {
+      "name": "Rina Puspita, M.Psi.",
+      "role": "Divisi Pendampingan Psikologis"
+    },
+    {
+      "name": "Dr. Hendra Gunawan, S.H.",
+      "role": "Divisi Hukum & Advokasi"
+    },
+    {
+      "name": "Fajar Nugroho, S.Sos.",
+      "role": "Divisi Sosialisasi & Edukasi"
+    },
+    {
+      "name": "Dr. Nining Triani",
+      "role": "Divisi Pendampingan Medis"
+    },
+    {
+      "name": "Ahmad Fauzi, S.Kom.",
+      "role": "Divisi Teknologi & Digital"
+    },
+    {
+      "name": "Rini Hartati, S.Pd.",
+      "role": "Divisi Administrasi & Data"
+    }
   ],
   "alur": {
     "steps": [
-      { "icon": "Phone", "title": "Penerimaan Laporan", "desc": "Korban atau saksi melaporkan kejadian melalui hotline, form online, atau datang langsung ke Satgas PPKPT. Laporan diterima oleh petugas yang terlatih dan empatik." },
-      { "icon": "Search", "title": "Identifikasi & Asesmen Awal", "desc": "Tim melakukan identifikasi awal kasus dan asesmen terhadap kebutuhan korban, termasuk tingkat risiko dan urgensi penanganan." },
-      { "icon": "Heart", "title": "Perlindungan & Pendampingan", "desc": "Korban diberikan perlindungan segera, termasuk pendampingan psikologis, hukum, dan medis sesuai kebutuhan. Kerahasiaan identitas dijamin penuh." },
-      { "icon": "SearchCheck", "title": "Investigasi & Pengumpulan Bukti", "desc": "Tim investigasi mengumpulkan bukti, memeriksa saksi, dan menyusun kronologi kejadian secara objektif dan profesional." },
-      { "icon": "Scale", "title": "Rekomendasi Sanksi / Pemulihan", "desc": "Berdasarkan hasil investigasi, rekomendasi diberikan untuk sanksi terhadap pelaku dan/atau langkah pemulihan bagi korban." }
+      {
+        "icon": "Phone",
+        "title": "Penerimaan Laporan",
+        "desc": "Korban atau saksi melaporkan kejadian melalui hotline, form online, atau datang langsung ke Satgas PPKPT. Laporan diterima oleh petugas yang terlatih dan empatik."
+      },
+      {
+        "icon": "Search",
+        "title": "Identifikasi & Asesmen Awal",
+        "desc": "Tim melakukan identifikasi awal kasus dan asesmen terhadap kebutuhan korban, termasuk tingkat risiko dan urgensi penanganan."
+      },
+      {
+        "icon": "Heart",
+        "title": "Perlindungan & Pendampingan",
+        "desc": "Korban diberikan perlindungan segera, termasuk pendampingan psikologis, hukum, dan medis sesuai kebutuhan. Kerahasiaan identitas dijamin penuh."
+      },
+      {
+        "icon": "SearchCheck",
+        "title": "Investigasi & Pengumpulan Bukti",
+        "desc": "Tim investigasi mengumpulkan bukti, memeriksa saksi, dan menyusun kronologi kejadian secara objektif dan profesional."
+      },
+      {
+        "icon": "Scale",
+        "title": "Rekomendasi Sanksi / Pemulihan",
+        "desc": "Berdasarkan hasil investigasi, rekomendasi diberikan untuk sanksi terhadap pelaku dan/atau langkah pemulihan bagi korban."
+      }
     ]
   },
   "dokumen": [
-    { "name": "Buku Pedoman PPKPT", "desc": "Panduan lengkap pencegahan dan penanganan kekerasan di perguruan tinggi." },
-    { "name": "SOP Pelaporan Kekerasan", "desc": "Standar operasional prosedur pelaporan dan penanganan kasus kekerasan." },
-    { "name": "Formulir Pengaduan Resmi", "desc": "Formulir standar untuk mengajukan laporan pengaduan kekerasan." },
-    { "name": "Dasar Hukum & Peraturan Rektor", "desc": "Landasan hukum dan peraturan rektor terkait PPKPT." }
+    {
+      "name": "Buku Pedoman PPKPT",
+      "desc": "Panduan lengkap pencegahan dan penanganan kekerasan di perguruan tinggi."
+    },
+    {
+      "name": "SOP Pelaporan Kekerasan",
+      "desc": "Standar operasional prosedur pelaporan dan penanganan kasus kekerasan."
+    },
+    {
+      "name": "Formulir Pengaduan Resmi",
+      "desc": "Formulir standar untuk mengajukan laporan pengaduan kekerasan."
+    },
+    {
+      "name": "Dasar Hukum & Peraturan Rektor",
+      "desc": "Landasan hukum dan peraturan rektor terkait PPKPT."
+    }
   ],
   "faq": [
-    { "question": "Apa yang dimaksud dengan PPKPT?", "answer": "PPKPT adalah Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi, yaitu upaya sistematis untuk mencegah dan menangani kekerasan di lingkungan kampus melalui Satuan Tugas yang dibentuk oleh perguruan tinggi." },
-    { "question": "Apakah identitas pelapor akan dirahasiakan?", "answer": "Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh peraturan perundang-undangan. Hanya petugas yang berwenang yang memiliki akses data pelapor. Pelapor juga dapat melapor secara anonim jika menghendaki." },
-    { "question": "Siapa saja yang bisa melapor ke Satgas PPKPT?", "answer": "Seluruh sivitas akademika dapat melapor, termasuk mahasiswa, dosen, tenaga kependidikan, dan masyarakat umum yang mengetahui atau mengalami kekerasan di lingkungan kampus." },
-    { "question": "Apa yang terjadi setelah saya melapor?", "answer": "Setelah laporan diterima, tim akan melakukan identifikasi dan asesmen awal, memberikan perlindungan dan pendampingan kepada korban, kemudian melakukan investigasi secara profesional sebelum memberikan rekomendasi sanksi atau pemulihan." },
-    { "question": "Apakah ada konsekuensi jika saya melapor?", "answer": "Tidak ada konsekuensi negatif bagi pelapor yang beritikad baik. Pelapor justru dilindungi dari segala bentuk intimidasi atau pembalasan. Peraturan melarang adanya tindakan retaliasi terhadap pelapor kekerasan." },
-    { "question": "Bagaimana cara melapor secara anonim?", "answer": "Anda dapat melapor melalui hotline atau WhatsApp tanpa menyebutkan identitas. Namun, perlu diketahui bahwa laporan anonim dapat membatasi kemampuan tim dalam melakukan investigasi dan pendampingan lanjutan." },
-    { "question": "Berapa lama proses penanganan kasus?", "answer": "Waktu penanganan tergantung pada kompleksitas kasus. Secara umum, proses investigasi dilakukan dalam waktu 14 hari kerja dan dapat diperpanjang sesuai kebutuhan. Korban akan mendapat update berkala mengenai perkembangan kasus." },
-    { "question": "Apa saja bentuk kekerasan yang bisa dilaporkan?", "answer": "Semua bentuk kekerasan dapat dilaporkan, termasuk kekerasan fisik, psikis, seksual, digital (online), diskriminasi, dan perundungan (bullying). Tim Satgas akan menindaklanjuti sesuai dengan kewenangan dan prosedur yang berlaku." }
+    {
+      "question": "Apa yang dimaksud dengan PPKPT?",
+      "answer": "PPKPT adalah Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi, yaitu upaya sistematis untuk mencegah dan menangani kekerasan di lingkungan kampus melalui Satuan Tugas yang dibentuk oleh perguruan tinggi."
+    },
+    {
+      "question": "Apakah identitas pelapor akan dirahasiakan?",
+      "answer": "Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh peraturan perundang-undangan. Hanya petugas yang berwenang yang memiliki akses data pelapor. Pelapor juga dapat melapor secara anonim jika menghendaki."
+    },
+    {
+      "question": "Siapa saja yang bisa melapor ke Satgas PPKPT?",
+      "answer": "Seluruh sivitas akademika dapat melapor, termasuk mahasiswa, dosen, tenaga kependidikan, dan masyarakat umum yang mengetahui atau mengalami kekerasan di lingkungan kampus."
+    },
+    {
+      "question": "Apa yang terjadi setelah saya melapor?",
+      "answer": "Setelah laporan diterima, tim akan melakukan identifikasi dan asesmen awal, memberikan perlindungan dan pendampingan kepada korban, kemudian melakukan investigasi secara profesional sebelum memberikan rekomendasi sanksi atau pemulihan."
+    },
+    {
+      "question": "Apakah ada konsekuensi jika saya melapor?",
+      "answer": "Tidak ada konsekuensi negatif bagi pelapor yang beritikad baik. Pelapor justru dilindungi dari segala bentuk intimidasi atau pembalasan. Peraturan melarang adanya tindakan retaliasi terhadap pelapor kekerasan."
+    },
+    {
+      "question": "Bagaimana cara melapor secara anonim?",
+      "answer": "Anda dapat melapor melalui hotline atau WhatsApp tanpa menyebutkan identitas. Namun, perlu diketahui bahwa laporan anonim dapat membatasi kemampuan tim dalam melakukan investigasi dan pendampingan lanjutan."
+    },
+    {
+      "question": "Berapa lama proses penanganan kasus?",
+      "answer": "Waktu penanganan tergantung pada kompleksitas kasus. Secara umum, proses investigasi dilakukan dalam waktu 14 hari kerja dan dapat diperpanjang sesuai kebutuhan. Korban akan mendapat update berkala mengenai perkembangan kasus."
+    },
+    {
+      "question": "Apa saja bentuk kekerasan yang bisa dilaporkan?",
+      "answer": "Semua bentuk kekerasan dapat dilaporkan, termasuk kekerasan fisik, psikis, seksual, digital (online), diskriminasi, dan perundungan (bullying). Tim Satgas akan menindaklanjuti sesuai dengan kewenangan dan prosedur yang berlaku."
+    }
   ],
   "lapor": {
     "badge": "Aman & Rahasia",
@@ -107,26 +284,81 @@
     "heroImage": "/images/counseling.jpg",
     "heroCaption": "Setiap laporan ditangani dengan empati dan profesionalisme",
     "trustBadges": [
-      { "icon": "Lock", "label": "Dijamin Kerahasiaannya" },
-      { "icon": "Shield", "label": "Terlindungi Undang-Undang" },
-      { "icon": "Clock", "label": "Ditangani Cepat" },
-      { "icon": "Users", "label": "Tim Profesional & Terlatih" }
+      {
+        "icon": "Lock",
+        "label": "Dijamin Kerahasiaannya"
+      },
+      {
+        "icon": "Shield",
+        "label": "Terlindungi Undang-Undang"
+      },
+      {
+        "icon": "Clock",
+        "label": "Ditangani Cepat"
+      },
+      {
+        "icon": "Users",
+        "label": "Tim Profesional & Terlatih"
+      }
     ],
     "contactCards": [
-      { "title": "Hotline Darurat", "subtitle": "24 jam, siap melayani kapan pun", "type": "phone", "value": "0821-XXXX-XXXX", "color": "red" },
-      { "title": "WhatsApp", "subtitle": "Chat, privasi lebih terjaga", "type": "whatsapp", "value": "https://wa.me/62821XXXXXXXX", "color": "green" },
-      { "title": "Datang Langsung", "subtitle": "Kantor Satgas PPKPT, Gedung Rektorat", "type": "info", "value": "Senin-Jumat, 08.00 - 16.00", "color": "blue" }
+      {
+        "title": "Hotline Darurat",
+        "subtitle": "24 jam, siap melayani kapan pun",
+        "type": "phone",
+        "value": "0821-XXXX-XXXX",
+        "color": "red"
+      },
+      {
+        "title": "WhatsApp",
+        "subtitle": "Chat, privasi lebih terjaga",
+        "type": "whatsapp",
+        "value": "https://wa.me/62821XXXXXXXX",
+        "color": "green"
+      },
+      {
+        "title": "Datang Langsung",
+        "subtitle": "Kantor Satgas PPKPT, Gedung Rektorat",
+        "type": "info",
+        "value": "Senin-Jumat, 08.00 - 16.00",
+        "color": "blue"
+      }
     ],
     "steps": [
-      { "num": 1, "title": "Hubungi Satgas", "desc": "Hubungi hotline, WhatsApp, atau datang langsung ke kantor Satgas PPKPT. Tim kami siap mendengarkan Anda kapan pun." },
-      { "num": 2, "title": "Sampaikan Laporan", "desc": "Ceritakan kronologi kejadian dengan tenang. Tidak perlu ragu – kami tidak akan menghakimi. Setiap detail Anda jaga kerahasiaannya." },
-      { "num": 3, "title": "Dapatkan Perlindungan", "desc": "Tim akan melakukan asesmen kebutuhan dan memberikan perlindungan serta pendampingan psikologis, hukum, dan medis." },
-      { "num": 4, "title": "Proses & Pemulihan", "desc": "Investigasi dilakukan secara profesional. Korban mendapat pendampingan penuh hingga proses selesai dan pemulihan tercapai." }
+      {
+        "num": 1,
+        "title": "Hubungi Satgas",
+        "desc": "Hubungi hotline, WhatsApp, atau datang langsung ke kantor Satgas PPKPT. Tim kami siap mendengarkan Anda kapan pun."
+      },
+      {
+        "num": 2,
+        "title": "Sampaikan Laporan",
+        "desc": "Ceritakan kronologi kejadian dengan tenang. Tidak perlu ragu – kami tidak akan menghakimi. Setiap detail Anda jaga kerahasiaannya."
+      },
+      {
+        "num": 3,
+        "title": "Dapatkan Perlindungan",
+        "desc": "Tim akan melakukan asesmen kebutuhan dan memberikan perlindungan serta pendampingan psikologis, hukum, dan medis."
+      },
+      {
+        "num": 4,
+        "title": "Proses & Pemulihan",
+        "desc": "Investigasi dilakukan secara profesional. Korban mendapat pendampingan penuh hingga proses selesai dan pemulihan tercapai."
+      }
     ],
     "testimonials": [
-      { "quote": "Awalnya saya sangat takut untuk melapor. Tapi tim Satgas sangat supportive dan profesional. Mereka mendampingi saya dari awal hingga akhir. Identitas saya benar-benar dirahasiakan.", "role": "Mahasiswa" },
-      { "quote": "Saya melaporkan teman saya yang mengalami kekerasan. Prosesnya cepat, jelas, dan tidak memakan waktu berbulan-bulan. Yang paling penting, korban merasa aman dan didengarkan.", "role": "Saksi" },
-      { "quote": "Sebagai dosen, saya melihat sendiri bagaimana Satgas menangani kasus dengan sangat serius dan manusiawi. Sistemnya terstruktur, tidak ada yang ditutup-tutupi.", "role": "Tenaga Pendidik" }
+      {
+        "quote": "Awalnya saya sangat takut untuk melapor. Tapi tim Satgas sangat supportive dan profesional. Mereka mendampingi saya dari awal hingga akhir. Identitas saya benar-benar dirahasiakan.",
+        "role": "Mahasiswa"
+      },
+      {
+        "quote": "Saya melaporkan teman saya yang mengalami kekerasan. Prosesnya cepat, jelas, dan tidak memakan waktu berbulan-bulan. Yang paling penting, korban merasa aman dan didengarkan.",
+        "role": "Saksi"
+      },
+      {
+        "quote": "Sebagai dosen, saya melihat sendiri bagaimana Satgas menangani kasus dengan sangat serius dan manusiawi. Sistemnya terstruktur, tidak ada yang ditutup-tutupi.",
+        "role": "Tenaga Pendidik"
+      }
     ],
     "confidentiality": {
       "title": "Jaminan Kerahasiaan",
@@ -138,10 +370,22 @@
       ]
     },
     "faq": [
-      { "q": "Apakah identitas saya akan dirahasiakan?", "a": "Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh Undang-Undang. Hanya petugas berwenang yang memiliki akses." },
-      { "q": "Berapa lama proses penanganannya?", "a": "Investigasi awal dilakukan dalam 14 hari kerja. Korban mendapat update berkala mengenai perkembangan kasus." },
-      { "q": "Apa yang perlu saya siapkan sebelum melapor?", "a": "Tidak perlu persiapan khusus. Cukup sampaikan kronologi yang Anda ketahui. Tim akan membantu mengarahkan." },
-      { "q": "Apakah saya bisa melapor secara anonim?", "a": "Bisa. Namun laporan anonim dapat membatasi kemampuan investigasi. Tim akan tetap menindaklanjuti sesuai prosedur." }
+      {
+        "q": "Apakah identitas saya akan dirahasiakan?",
+        "a": "Ya, identitas pelapor dijamin kerahasiaannya dan dilindungi oleh Undang-Undang. Hanya petugas berwenang yang memiliki akses."
+      },
+      {
+        "q": "Berapa lama proses penanganannya?",
+        "a": "Investigasi awal dilakukan dalam 14 hari kerja. Korban mendapat update berkala mengenai perkembangan kasus."
+      },
+      {
+        "q": "Apa yang perlu saya siapkan sebelum melapor?",
+        "a": "Tidak perlu persiapan khusus. Cukup sampaikan kronologi yang Anda ketahui. Tim akan membantu mengarahkan."
+      },
+      {
+        "q": "Apakah saya bisa melapor secara anonim?",
+        "a": "Bisa. Namun laporan anonim dapat membatasi kemampuan investigasi. Tim akan tetap menindaklanjuti sesuai prosedur."
+      }
     ],
     "ctaSection": {
       "title": "Anda Tidak Sendiri",
@@ -153,7 +397,11 @@
   "footer": {
     "confidentialityBadge": "Setiap laporan dijamin kerahasiaannya. Identitas pelapor dilindungi sepenuhnya.",
     "aboutText": "Satuan Tugas Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi. Bersama wujudkan kampus yang aman dan kondusif.",
-    "affiliates": ["Kemdikbud", "Ditjen Dikti", "Kampus"],
+    "affiliates": [
+      "Kemdikbud",
+      "Ditjen Dikti",
+      "Kampus"
+    ],
     "copyright": "Terakhir diperbarui: Mei 2026 © Satuan Tugas PPKPT"
   },
   "floatingHotline": {

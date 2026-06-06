@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+//syarat deploy di cloudfare
+export const runtime = 'edge';
 
 export async function POST() {
   const GITHUB_TOKEN = process.env.GITHUB_PERSONAL_TOKEN; 

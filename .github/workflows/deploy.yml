@@ -32,5 +32,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # ✅ Sesuaikan folder deploy ke 'out' jika kamu menggunakan static export Next.js
-          command: deploy
+          # ✅ Arahkan langsung ke file worker utama hasil build dari OpenNext
+          command: deploy .open-next/worker.js

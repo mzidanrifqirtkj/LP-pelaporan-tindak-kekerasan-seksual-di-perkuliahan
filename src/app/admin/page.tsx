@@ -83,6 +83,9 @@ function Dashboard({ token: _token }: { token: string }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
+  const [publishing, setPublishing] = useState(false);
+  const [publishMessage, setPublishMessage] = useState('');
+
   useEffect(() => {
     fetchContent();
   }, []);
@@ -132,6 +135,27 @@ function Dashboard({ token: _token }: { token: string }) {
       setSaveMessage('❌ Gagal menyimpan');
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handlePublish = async () => {
+    setPublishing(true);
+    setPublishMessage('');
+    try {
+      const res = await fetch('/api/publish', {
+        method: 'POST',
+      });
+      const data = await res.json();
+      if (data.success) {
+        setPublishMessage('🚀 Sinyal dikirim! Menunggu rilis Cloudflare (~2 mnt).');
+      } else {
+        setPublishMessage('❌ Gagal memicu deploy otomatis.');
+      }
+    } catch {
+      setPublishMessage('❌ Gangguan jaringan ke API internal.');
+    } finally {
+      setPublishing(false);
+      setTimeout(() => setPublishMessage(''), 5000);
     }
   };
 
@@ -295,20 +319,31 @@ function Dashboard({ token: _token }: { token: string }) {
           </div>
 
           {/* Section header */}
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/5 pb-4">
             <h1 className="text-xl sm:text-2xl font-bold text-white">
               {sections.find((s) => s.id === activeSection)?.label}
             </h1>
-            <div className="flex items-center gap-3">
-              {saveMessage && (
-                <span className="text-sm text-green-400">{saveMessage}</span>
-              )}
+            <div className="flex flex-wrap items-center gap-2">
+              {/* Notifikasi Status */}
+              {saveMessage && <span className="text-xs text-green-400 bg-green-500/10 px-2 py-1 rounded-lg">{saveMessage}</span>}
+              {publishMessage && <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded-lg">{publishMessage}</span>}
+              
+              {/* Tombol Simpan Konten JSON */}
               <button
                 onClick={handleSave}
-                disabled={saving}
-                className="bg-accent text-white px-4 sm:px-5 py-2 rounded-xl text-sm font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50 flex items-center gap-2"
+                disabled={saving || publishing}
+                className="bg-slate-800 ring-1 ring-white/10 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-1.5"
               >
-                {saving ? 'Menyimpan...' : '💾 Simpan Semua'}
+                {saving ? 'Menyimpan...' : '💾 Simpan Konten'}
+              </button>
+
+              {/* TOMBOL BARU: TRIGGER PUBLISH KE CLOUDFLARE */}
+              <button
+                onClick={handlePublish}
+                disabled={saving || publishing}
+                className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-blue-500 transition-colors disabled:opacity-50 flex items-center gap-1.5 shadow-lg shadow-blue-600/20"
+              >
+                {publishing ? 'Mengirim...' : '🚀 Publish Website'}
               </button>
             </div>
           </div>
@@ -381,14 +416,14 @@ function DashboardView({ content }: { content: any }) {
       </div>
 
       <div className="glass-card rounded-2xl p-6">
-        <h3 className="font-semibold text-white mb-3">Cara Deploy</h3>
-        <ol className="list-decimal list-inside space-y-1.5 text-sm text-slate-400">
-          <li>Edit konten di sini, klik <strong className="text-green-400">Simpan Semua</strong></li>
-          <li>Perubahan otomatis commit ke GitHub <span className="text-xs text-slate-500">(jika dikonfigurasi)</span></li>
-          <li>GitHub Action build & deploy ke Cloudflare Pages</li>
-          <li>Atau manual: <code className="text-blue-300">git add . && git commit -m &quot;update konten&quot; && git push</code></li>
-        </ol>
-      </div>
+      <h3 className="font-semibold text-white mb-3">Cara Memperbarui Website Publik</h3>
+      <ol className="list-decimal list-inside space-y-1.5 text-sm text-slate-400">
+        <li>Pilih menu form di *sidebar* dan sesuaikan konten yang ingin diubah.</li>
+        <li>Klik tombol <strong className="text-slate-200">💾 Simpan Konten</strong> di pojok kanan atas untuk menyimpan draf ke database local (`content.json`).</li>
+        <li>Jika seluruh data sudah dirasa pas, tekan tombol biru <strong className="text-blue-400">🚀 Publish Website</strong>.</li>
+        <li>Sistem akan menyuruh robot GitHub Actions & Cloudflare merakit ulang halaman statis. Tunggu sekitar <span className="text-blue-300 font-medium">1-2 menit</span> sampai perubahan resmi tayang di internet.</li>
+      </ol>
+    </div>
     </div>
   );
 }

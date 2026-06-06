@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # ✅ WAJIB DITAMBAHKAN: Gerbang agar bisa dipicu oleh tombol Dashboard Admin
+  repository_dispatch:
+    types: [publish-event]
 
 jobs:
   build-and-deploy:
@@ -29,4 +32,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy .next --project-name=ppkpt
+          # ✅ Sesuaikan folder deploy ke 'out' jika kamu menggunakan static export Next.js
+          command: pages deploy out --project-name=ppkpt

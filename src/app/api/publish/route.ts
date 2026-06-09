@@ -22,7 +22,7 @@ export async function POST() {
     const content = kvContent || getStaticContent();
 
     const contentJson = JSON.stringify(content, null, 2);
-    const encodedContent = btoa(contentJson);
+    const encodedContent = Buffer.from(contentJson).toString('base64');
 
     const shaRes = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/src/data/content.json`,

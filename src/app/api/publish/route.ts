@@ -24,15 +24,16 @@ export async function POST() {
     const contentJson = JSON.stringify(content, null, 2);
     const encodedContent = Buffer.from(contentJson).toString('base64');
 
+    const GH_HEADERS = {
+      "Authorization": `Bearer ${GITHUB_TOKEN}`,
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "ppkpt-admin/1.0",
+    };
+
     const shaRes = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/src/data/content.json`,
-      {
-        headers: {
-          "Authorization": `Bearer ${GITHUB_TOKEN}`,
-          "Accept": "application/vnd.github+json",
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
-      }
+      { headers: GH_HEADERS }
     );
 
     let sha: string | undefined;
@@ -45,12 +46,7 @@ export async function POST() {
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/src/data/content.json`,
       {
         method: "PUT",
-        headers: {
-          "Authorization": `Bearer ${GITHUB_TOKEN}`,
-          "Accept": "application/vnd.github+json",
-          "X-GitHub-Api-Version": "2022-11-28",
-          "Content-Type": "application/json",
-        },
+        headers: { ...GH_HEADERS, "Content-Type": "application/json" },
         body: JSON.stringify({
           message: "chore: update content from admin panel",
           content: encodedContent,
@@ -68,11 +64,7 @@ export async function POST() {
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`,
       {
         method: "POST",
-        headers: {
-          "Authorization": `Bearer ${GITHUB_TOKEN}`,
-          "Accept": "application/vnd.github+json",
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
+        headers: GH_HEADERS,
         body: JSON.stringify({
           event_type: "publish-event",
         }),

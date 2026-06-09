@@ -19,5 +19,11 @@
   ],
   "observability": {
     "enabled": true
-  }
+  },
+  "kv_namespaces": [
+    {
+      "binding": "PPKPT_CONTENT",
+      "id": "58610f8864c849b591b0859b662865f0"
+    }
+  ]
 }

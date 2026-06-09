@@ -1,19 +1,70 @@
 import { NextResponse } from 'next/server';
+import { getContentFromKV, getStaticContent } from '@/lib/content';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 export async function POST() {
-  const GITHUB_TOKEN = process.env.GITHUB_PERSONAL_TOKEN; 
-  const GITHUB_OWNER = "mzidanrifqirtkj"; // Ganti dengan username GitHub kamu
-  const GITHUB_REPO  = "LP-pelaporan-tindak-kekerasan-seksual-di-perkuliahan"; // Ganti dengan nama repo kamu
+  const GITHUB_TOKEN = process.env.GITHUB_PERSONAL_TOKEN;
+  const GITHUB_OWNER = "mzidanrifqirtkj";
+  const GITHUB_REPO  = "LP-pelaporan-tindak-kekerasan-seksual-di-perkuliahan";
 
   if (!GITHUB_TOKEN) {
     return NextResponse.json(
-      { success: false, error: "Token GitHub belum dikonfigurasi di .env" },
+      { success: false, error: "Token GitHub belum dikonfigurasi" },
       { status: 500 }
     );
   }
 
   try {
-    const response = await fetch(
+    const ctx = getCloudflareContext();
+    const env = (ctx as any).env;
+
+    const kvContent = await getContentFromKV(env);
+    const content = kvContent || getStaticContent();
+
+    const contentJson = JSON.stringify(content, null, 2);
+    const encodedContent = btoa(contentJson);
+
+    const shaRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/src/data/content.json`,
+      {
+        headers: {
+          "Authorization": `Bearer ${GITHUB_TOKEN}`,
+          "Accept": "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    let sha: string | undefined;
+    if (shaRes.ok) {
+      const existing = await shaRes.json();
+      sha = existing.sha;
+    }
+
+    const commitRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/src/data/content.json`,
+      {
+        method: "PUT",
+        headers: {
+          "Authorization": `Bearer ${GITHUB_TOKEN}`,
+          "Accept": "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "chore: update content from admin panel",
+          content: encodedContent,
+          sha,
+        }),
+      }
+    );
+
+    if (!commitRes.ok) {
+      const errText = await commitRes.text();
+      return NextResponse.json({ success: false, error: `Gagal commit: ${errText}` }, { status: 400 });
+    }
+
+    const dispatchRes = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/dispatches`,
       {
         method: "POST",
@@ -23,18 +74,21 @@ export async function POST() {
           "X-GitHub-Api-Version": "2022-11-28",
         },
         body: JSON.stringify({
-          event_type: "publish-event", // Harus sama dengan isi deploy.yml
+          event_type: "publish-event",
         }),
       }
     );
 
-    if (response.status === 204) {
+    if (dispatchRes.status === 204) {
       return NextResponse.json({ success: true });
     } else {
-      const errorText = await response.text();
+      const errorText = await dispatchRes.text();
       return NextResponse.json({ success: false, error: errorText }, { status: 400 });
     }
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { success: false, error: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    );
   }
 }

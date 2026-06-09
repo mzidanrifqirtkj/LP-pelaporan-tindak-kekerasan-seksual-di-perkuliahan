@@ -1,22 +1,35 @@
 import { NextResponse } from 'next/server';
-import { getContent, saveContent, getContentPath } from '@/lib/content';
+import { getContent, getStaticContent, getContentFromKV, saveContentToKV } from '@/lib/content';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const content = await getContent();
-    return NextResponse.json(content);
+    const ctx = getCloudflareContext();
+    const env = (ctx as any).env;
+    const kvContent = await getContentFromKV(env);
+
+    if (kvContent) {
+      return NextResponse.json(kvContent);
+    }
+
+    const staticContent = await getContent();
+    return NextResponse.json(staticContent);
   } catch {
-    return NextResponse.json({ error: 'Failed to read content' }, { status: 500 });
+    const staticContent = await getContent();
+    return NextResponse.json(staticContent);
   }
 }
 
 export async function PUT(request: Request) {
   try {
     const body = await request.json();
-    await saveContent(body);
-    return NextResponse.json({ success: true, path: getContentPath() });
+    const ctx = getCloudflareContext();
+    const env = (ctx as any).env;
+    await saveContentToKV(env, body);
+
+    return NextResponse.json({ success: true, path: 'KV:ppkpt:content' });
   } catch {
     return NextResponse.json({ error: 'Failed to save content' }, { status: 500 });
   }

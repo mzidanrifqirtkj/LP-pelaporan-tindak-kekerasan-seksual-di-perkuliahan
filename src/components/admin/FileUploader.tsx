@@ -35,7 +35,8 @@ export default function FileUploader({ folder, currentUrl, label, accept, onUplo
         body: formData,
       });
 
-      const data = await res.json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const data: any = await res.json();
 
       if (data.success) {
         const url = data.url;

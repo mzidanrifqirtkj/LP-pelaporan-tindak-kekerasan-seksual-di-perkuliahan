@@ -24,6 +24,7 @@ npm run cf-typegen   # generate cloudflare-env.d.ts from wrangler.jsonc
 ## Gotchas
 
 - OpenNext does **not** support `export const runtime = 'edge'`. Use `export const dynamic = 'force-dynamic'` instead.
+- TypeScript strict mode makes `response.json()` return `unknown`. Always type-assert with `as { ... }` or `as any`.
 - `next.config.ts` calls `initOpenNextCloudflareForDev()` via an `import` after `export default` — keep it there.
 - Tailwind CSS v4 uses `@import "tailwindcss"` — no `tailwind.config.*` file.
 - Dark-by-default theme with `.light` class for light mode toggle.

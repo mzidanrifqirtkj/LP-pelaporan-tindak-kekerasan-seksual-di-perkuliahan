@@ -38,7 +38,8 @@ export async function POST() {
 
     let sha: string | undefined;
     if (shaRes.ok) {
-      const existing = await shaRes.json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const existing: any = await shaRes.json();
       sha = existing.sha;
     }
 

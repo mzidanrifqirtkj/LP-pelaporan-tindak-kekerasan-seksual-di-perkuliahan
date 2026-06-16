@@ -27,7 +27,8 @@ export default function AdminPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
       });
-      const data = await res.json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const data: any = await res.json();
       if (data.success) {
         sessionStorage.setItem('admin_token', data.token);
         setToken(data.token);
@@ -96,7 +97,8 @@ function Dashboard({ token: _token }: { token: string }) {
     setLoading(true);
     try {
       const res = await fetch('/api/content');
-      const data = await res.json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const data: any = await res.json();
       setContent(data);
     } catch {
       console.error('Failed to fetch content');
@@ -128,7 +130,8 @@ function Dashboard({ token: _token }: { token: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(content),
       });
-      const data = await res.json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const data: any = await res.json();
       if (data.success) {
         setSaveMessage('✅ Konten berhasil disimpan!');
         setTimeout(() => setSaveMessage(''), 3000);
@@ -147,7 +150,8 @@ function Dashboard({ token: _token }: { token: string }) {
       const res = await fetch('/api/publish', {
         method: 'POST',
       });
-      const data = await res.json();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const data: any = await res.json();
       if (data.success) {
         setPublishMessage('🚀 Sinyal dikirim! Menunggu rilis Cloudflare (~2 mnt).');
       } else {

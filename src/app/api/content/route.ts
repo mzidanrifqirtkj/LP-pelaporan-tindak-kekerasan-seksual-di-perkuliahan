@@ -24,7 +24,8 @@ export async function GET() {
 
 export async function PUT(request: Request) {
   try {
-    const body = await request.json();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const body: any = await request.json();
     const ctx = getCloudflareContext();
     const env = (ctx as any).env;
     await saveContentToKV(env, body);

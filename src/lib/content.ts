@@ -58,6 +58,7 @@ export interface AboutContent {
 export interface TeamMember {
   name: string;
   role: string;
+  imageUrl?: string;
 }
 
 export interface AlurContent {
@@ -67,6 +68,7 @@ export interface AlurContent {
 export interface DocumentItem {
   name: string;
   desc: string;
+  fileUrl?: string;
 }
 
 export interface FAQItem {

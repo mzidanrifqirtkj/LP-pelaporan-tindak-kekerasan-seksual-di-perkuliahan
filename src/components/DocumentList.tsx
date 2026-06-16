@@ -5,8 +5,16 @@ import { FileText, Download, Share2 } from 'lucide-react';
 import content from '@/data/content.json';
 
 export default function DocumentList() {
-  const handleDownload = (name: string) => {
-    alert(`Download simulasi untuk: ${name}`);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleDownload = (doc: any) => {
+    if (doc.fileUrl) {
+      const url = doc.fileUrl.startsWith('http') || doc.fileUrl.startsWith('/')
+        ? doc.fileUrl
+        : `/api/images/${doc.fileUrl}`;
+      window.open(url, '_blank');
+    } else {
+      alert(`File belum tersedia: ${doc.name}`);
+    }
   };
 
   const handleShare = (name: string) => {
@@ -44,7 +52,7 @@ export default function DocumentList() {
                 <Share2 size={18} />
               </button>
               <button
-                onClick={() => handleDownload(doc.name)}
+                onClick={() => handleDownload(doc)}
                 className="flex items-center gap-1.5 bg-accent text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-accent-hover transition-colors"
               >
                 <Download size={16} />

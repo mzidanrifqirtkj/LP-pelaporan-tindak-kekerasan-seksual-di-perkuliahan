@@ -20,6 +20,12 @@
   "observability": {
     "enabled": true
   },
+  "r2_buckets": [
+    {
+      "binding": "PPKPT_IMAGES",
+      "bucket_name": "ppkpt"
+    }
+  ],
   "kv_namespaces": [
     {
       "binding": "PPKPT_CONTENT",

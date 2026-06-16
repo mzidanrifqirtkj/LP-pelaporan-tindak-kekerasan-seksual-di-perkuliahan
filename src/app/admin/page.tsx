@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronLeft } from 'lucide-react';
+import ImageUploader from '@/components/admin/ImageUploader';
+import FileUploader from '@/components/admin/FileUploader';
 
 export default function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
@@ -469,10 +471,11 @@ function Field({ label, value, onChange, type = 'text', rows }: {
   );
 }
 
-function ArrayEditor({ items, onChange, fields }: {
+function ArrayEditor({ items, onChange, fields, renderExtra }: {
   items: any[];
   onChange: (items: any[]) => void;
   fields: { key: string; label: string; type?: string; rows?: number }[];
+  renderExtra?: (item: any, index: number) => React.ReactNode;
 }) {
   const updateItem = (index: number, key: string, value: string) => {
     const updated = [...items];
@@ -513,6 +516,7 @@ function ArrayEditor({ items, onChange, fields }: {
               rows={f.rows}
             />
           ))}
+          {renderExtra?.(item, i)}
         </div>
       ))}
       <button
@@ -532,7 +536,12 @@ function HeroSectionForm({ content, updateContent }: { content: any; updateConte
         <Field label="Badge" value={content.hero.badge} onChange={(v) => updateContent('hero.badge', v)} />
         <Field label="Headline" value={content.hero.headline} onChange={(v) => updateContent('hero.headline', v)} />
         <Field label="Deskripsi" value={content.hero.description} onChange={(v) => updateContent('hero.description', v)} rows={4} />
-        <Field label="Background Image Path" value={content.hero.backgroundImage} onChange={(v) => updateContent('hero.backgroundImage', v)} />
+        <ImageUploader
+          folder="hero"
+          currentUrl={content.hero.backgroundImage}
+          label="Background Image"
+          onUploaded={(url) => updateContent('hero.backgroundImage', url)}
+        />
       </SectionCard>
 
       <SectionCard title="Stat Cards" desc="3 card statistik di hero">
@@ -602,12 +611,27 @@ function TeamSectionForm({ content, updateContent }: { content: any; updateConte
   return (
     <SectionCard title="Tim PPKPT" desc={`${content.team.length} anggota`}>
       <ArrayEditor
-        items={content.team}
-        onChange={(v) => updateContent('team', v)}
+        items={content.team.map((m: any, i: number) => ({
+          ...m,
+          imageUrl: m.imageUrl || `/images/team/member-${i + 1}.jpg`,
+        }))}
+        onChange={(v) => updateContent('team', v.map((m: any) => ({ name: m.name, role: m.role, imageUrl: m.imageUrl })))}
         fields={[
           { key: 'name', label: 'Nama' },
           { key: 'role', label: 'Jabatan' },
         ]}
+        renderExtra={(item: any, idx: number) => (
+          <ImageUploader
+            folder="team"
+            currentUrl={item.imageUrl || ''}
+            label="Foto Profil"
+            onUploaded={(url) => {
+              const updated = [...content.team];
+              updated[idx] = { ...updated[idx], imageUrl: url };
+              updateContent('team', updated);
+            }}
+          />
+        )}
       />
     </SectionCard>
   );
@@ -639,6 +663,19 @@ function DokumenSectionForm({ content, updateContent }: { content: any; updateCo
           { key: 'name', label: 'Nama Dokumen' },
           { key: 'desc', label: 'Deskripsi', rows: 3 },
         ]}
+        renderExtra={(item: any, idx: number) => (
+          <FileUploader
+            folder="dokumen"
+            currentUrl={item.fileUrl || ''}
+            label="File Dokumen"
+            accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.rar"
+            onUploaded={(url) => {
+              const updated = [...content.dokumen];
+              updated[idx] = { ...updated[idx], fileUrl: url };
+              updateContent('dokumen', updated);
+            }}
+          />
+        )}
       />
     </SectionCard>
   );
@@ -667,7 +704,12 @@ function LaporSectionForm({ content, updateContent }: { content: any; updateCont
         <Field label="Headline" value={content.lapor.headline} onChange={(v) => updateContent('lapor.headline', v)} />
         <Field label="Highlight Word" value={content.lapor.headlineHighlight} onChange={(v) => updateContent('lapor.headlineHighlight', v)} />
         <Field label="Deskripsi" value={content.lapor.description} onChange={(v) => updateContent('lapor.description', v)} rows={4} />
-        <Field label="Hero Image Path" value={content.lapor.heroImage} onChange={(v) => updateContent('lapor.heroImage', v)} />
+        <ImageUploader
+          folder="lapor"
+          currentUrl={content.lapor.heroImage}
+          label="Hero Image"
+          onUploaded={(url) => updateContent('lapor.heroImage', url)}
+        />
         <Field label="Hero Caption" value={content.lapor.heroCaption} onChange={(v) => updateContent('lapor.heroCaption', v)} />
       </SectionCard>
 

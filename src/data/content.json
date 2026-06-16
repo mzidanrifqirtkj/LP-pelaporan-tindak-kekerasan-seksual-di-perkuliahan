@@ -227,19 +227,23 @@
   "dokumen": [
     {
       "name": "Buku Pedoman PPKPT",
-      "desc": "Panduan lengkap pencegahan dan penanganan kekerasan di perguruan tinggi."
+      "desc": "Panduan lengkap pencegahan dan penanganan kekerasan di perguruan tinggi.",
+      "fileUrl": ""
     },
     {
       "name": "SOP Pelaporan Kekerasan",
-      "desc": "Standar operasional prosedur pelaporan dan penanganan kasus kekerasan."
+      "desc": "Standar operasional prosedur pelaporan dan penanganan kasus kekerasan.",
+      "fileUrl": ""
     },
     {
       "name": "Formulir Pengaduan Resmi",
-      "desc": "Formulir standar untuk mengajukan laporan pengaduan kekerasan."
+      "desc": "Formulir standar untuk mengajukan laporan pengaduan kekerasan.",
+      "fileUrl": ""
     },
     {
       "name": "Dasar Hukum & Peraturan Rektor",
-      "desc": "Landasan hukum dan peraturan rektor terkait PPKPT."
+      "desc": "Landasan hukum dan peraturan rektor terkait PPKPT.",
+      "fileUrl": ""
     }
   ],
   "faq": [

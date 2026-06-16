@@ -22,12 +22,13 @@ export default function StrukturPage() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {content.team.map((member, i) => (
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {(content.team as any[]).map((member, i) => (
             <ProfileCard
               key={i}
               name={member.name}
               role={member.role}
-              imageUrl={`/images/team/member-${i + 1}.jpg`}
+              imageUrl={member.imageUrl || `/images/team/member-${i + 1}.jpg`}
               index={i}
             />
           ))}

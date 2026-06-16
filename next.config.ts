@@ -13,4 +13,8 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
-initOpenNextCloudflareForDev({ remoteBindings: true });
+initOpenNextCloudflareForDev(
+  process.env.NODE_ENV === 'development'
+    ? { remoteBindings: true }
+    : undefined
+);

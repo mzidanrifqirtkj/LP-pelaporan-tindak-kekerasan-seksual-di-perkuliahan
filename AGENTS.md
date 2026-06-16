@@ -20,6 +20,7 @@ npm run cf-typegen   # generate cloudflare-env.d.ts from wrangler.jsonc
 - **Deploy:** GitHub Actions on push to `main` or `repository_dispatch` → `opennextjs-cloudflare build` → `wrangler deploy`.
 - **KV** is only read/written by API routes (`/api/content`). Static pages use `content.json` directly — restart dev server or rebuild to see changes.
 - **R2 bucket** (`ppkpt`, binding `PPKPT_IMAGES`) for file uploads from admin panel. Upload API: `POST /api/upload` (`folder` + `file`). Served via `/api/images/[...key]`. Admin panel sections with image/file upload: hero, lapor, team, dokumen.
+- R2 uses `"remote": true` binding + `remoteBindings: true` in dev (`process.env.NODE_ENV` guard) so dev writes to the real R2 bucket, not local simulation.
 
 ## Gotchas
 

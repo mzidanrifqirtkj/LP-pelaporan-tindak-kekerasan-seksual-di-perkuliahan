@@ -33,14 +33,14 @@
     "escapeLabel": "Exit",
     "laporLabel": "Lapor Sekarang",
     "laporHref": "/lapor",
-    "hotlinePhone": "0821-XXXX-XXXX",
+    "hotlinePhone": "0821-XXXX-0000",
     "whatsappUrl": "https://wa.me/62821XXXXXXXX",
     "email": "satgas@ppkpt.ac.id",
     "address": "Kampus Universitas, Gedung Rektorat",
     "workingHours": "Senin-Jumat, 08.00 - 16.00"
   },
   "hero": {
-    "badge": "Satuan Tugas PPKPT hhi",
+    "badge": "Satuan Tugas PPKPT cek",
     "headline": "Kawasan Kampus Bebas Kekerasan",
     "description": "Selamat datang di pusat informasi Satgas PPKPT. Bersama kita ciptakan lingkungan kampus yang aman, nyaman, dan kondusif bagi seluruh sivitas akademika.",
     "backgroundImage": "/images/hero-campus.jpg",

@@ -23,7 +23,8 @@
   "r2_buckets": [
     {
       "binding": "PPKPT_IMAGES",
-      "bucket_name": "ppkpt"
+      "bucket_name": "ppkpt",
+      "remote": true
     }
   ],
   "kv_namespaces": [

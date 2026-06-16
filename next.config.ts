@@ -16,5 +16,5 @@ import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 initOpenNextCloudflareForDev(
   process.env.NODE_ENV === 'development'
     ? { remoteBindings: true }
-    : undefined
+    : { remoteBindings: false }
 );

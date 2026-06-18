@@ -12,8 +12,7 @@ export async function GET(
     const objectKey = key.join('/');
 
     const ctx = getCloudflareContext();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const env = (ctx as any).env;
+    const env = ctx.env as { PPKPT_IMAGES: R2Bucket };
 
     const object = await env.PPKPT_IMAGES.get(objectKey);
 
@@ -26,10 +25,11 @@ export async function GET(
       headers.set('Content-Type', object.httpMetadata.contentType);
     }
     headers.set('Cache-Control', 'public, max-age=31536000, immutable');
-    headers.set('ETag', object.etag);
+    if (object.etag) {
+      headers.set('ETag', object.etag);
+    }
 
-    const body = await object.arrayBuffer();
-    return new NextResponse(body, { headers });
+    return new NextResponse(object.body, { headers });
   } catch {
     return NextResponse.json({ error: 'Gagal mengambil file' }, { status: 500 });
   }

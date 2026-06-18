@@ -16,6 +16,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (file.size > 1 * 1024 * 1024) {
+      return NextResponse.json(
+        { error: 'Ukuran file maksimal 1 MB' },
+        { status: 400 }
+      );
+    }
+
     const allowedFolders = ['hero', 'quicklinks', 'lapor', 'team', 'dokumen', 'umum'];
     if (!allowedFolders.includes(folder)) {
       return NextResponse.json(
@@ -54,8 +61,8 @@ export async function POST(request: Request) {
       fileName: file.name,
       folder,
     });
-  } catch (error) {
-    console.error('Upload error:', error);
+  } catch (error: unknown) {
+    console.error('Upload error:', error instanceof Error ? error.message : error);
     return NextResponse.json(
       { error: 'Gagal mengupload file' },
       { status: 500 }

@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import { compressImage } from '@/lib/compress';
+
+const MAX_SIZE = 1 * 1024 * 1024;
 
 interface FileUploaderProps {
   folder: string;
@@ -26,8 +29,20 @@ export default function FileUploader({ folder, currentUrl, label, accept, onUplo
     setMessage('');
 
     try {
+      let fileToUpload = file;
+      if (file.type.startsWith('image/')) {
+        fileToUpload = await compressImage(file);
+      }
+
+      if (fileToUpload.size > MAX_SIZE) {
+        const sizeMB = (fileToUpload.size / 1024 / 1024).toFixed(2);
+        setMessage(`Ukuran masih ${sizeMB} MB (maksimal 1 MB)`);
+        setUploading(false);
+        return;
+      }
+
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', fileToUpload);
       formData.append('folder', folder);
 
       const res = await fetch('/api/upload', {
@@ -35,12 +50,10 @@ export default function FileUploader({ folder, currentUrl, label, accept, onUplo
         body: formData,
       });
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const data: any = await res.json();
+      const data = await res.json() as { success?: boolean; url?: string; error?: string };
 
-      if (data.success) {
-        const url = data.url;
-        onUploaded(url);
+      if (data.success && data.url) {
+        onUploaded(data.url);
         setMessage('✓ Berhasil upload');
         if (inputRef.current) inputRef.current.value = '';
       } else {

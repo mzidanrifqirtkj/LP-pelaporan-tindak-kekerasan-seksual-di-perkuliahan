@@ -164,7 +164,8 @@
   "team": [
     {
       "name": "Prof. Dr. Ahmad Syarif",
-      "role": "Ketua Satgas PPKPT"
+      "role": "Ketua Satgas PPKPT",
+      "imageUrl": "/api/images/team/1781758580761-batman-arkham-origins-joker-games-montreal-rocksteady-studio.jpg"
     },
     {
       "name": "Dr. Siti Rahmawati",

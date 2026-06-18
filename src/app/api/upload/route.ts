@@ -51,8 +51,7 @@ export async function POST(request: Request) {
       httpMetadata: { contentType: file.type },
     });
 
-    const publicUrlBase = process.env.R2_PUBLIC_URL || '';
-    const url = publicUrlBase ? `${publicUrlBase}/${key}` : `/api/images/${key}`;
+    const url = `/api/images/${key}`;
 
     return NextResponse.json({
       success: true,

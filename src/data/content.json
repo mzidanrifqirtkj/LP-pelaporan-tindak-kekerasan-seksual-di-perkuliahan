@@ -226,9 +226,9 @@
   },
   "dokumen": [
     {
-      "name": "Buku Pedoman PPKPT",
+      "name": "cek file",
       "desc": "Panduan lengkap pencegahan dan penanganan kekerasan di perguruan tinggi.",
-      "fileUrl": "https://pub-62509286323b4b34a3b001d35e5aa9d5.r2.dev/dokumen/1781757313435-mockup-document-rs-bratanata-laporan-antibiotik.pdf"
+      "fileUrl": "/api/images/dokumen/1781758216447-mockup-document-rs-bratanata-laporan-antibiotik.pdf"
     },
     {
       "name": "SOP Pelaporan Kekerasan",

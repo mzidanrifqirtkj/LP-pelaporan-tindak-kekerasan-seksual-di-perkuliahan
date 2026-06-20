@@ -5,8 +5,9 @@ import AnimatedShapes from "@/components/AnimatedShapes";
 import TrustBadge from "@/components/TrustBadge";
 import TestimonialCard from "@/components/TestimonialCard";
 import content from "@/data/content.json";
+import type { LaporContent } from "@/lib/content";
 
-const l = content.lapor;
+const l: LaporContent = content.lapor;
 const g = content.global;
 
 export const metadata: Metadata = {

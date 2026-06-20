@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProfileCard from "@/components/ProfileCard";
 import content from "@/data/content.json";
+import type { TeamMember } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Struktur Keanggotaan",
@@ -22,8 +23,7 @@ export default function StrukturPage() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          {(content.team as any[]).map((member, i) => (
+          {(content.team as TeamMember[]).map((member, i) => (
             <ProfileCard
               key={i}
               name={member.name}

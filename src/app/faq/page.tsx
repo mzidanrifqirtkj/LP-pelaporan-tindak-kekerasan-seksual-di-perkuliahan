@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQItem from "@/components/FAQItem";
 import content from "@/data/content.json";
+import type { FAQItem as FAQItemType } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Pertanyaan Umum (FAQ)",
@@ -22,7 +23,7 @@ export default function FAQPage() {
         </p>
 
         <div className="space-y-3">
-          {content.faq.map((faq, i) => (
+          {(content.faq as FAQItemType[]).map((faq, i) => (
             <FAQItem key={i} question={faq.question} answer={faq.answer} />
           ))}
         </div>

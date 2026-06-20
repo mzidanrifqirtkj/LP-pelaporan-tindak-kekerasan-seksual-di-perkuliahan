@@ -4,6 +4,7 @@ import AnimatedShapes from "@/components/AnimatedShapes";
 import AnimatedCounter from "./AnimatedCounter";
 import { CheckCircle, Shield, Brain, Heart, Monitor, UserX } from "lucide-react";
 import content from "@/data/content.json";
+import type { AboutContent } from "@/lib/content";
 
 const iconMap: Record<string, any> = { Shield, Brain, Heart, Monitor, UserX };
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const a = content.about;
+  const a: AboutContent = content.about;
 
   return (
     <div className="pb-16">

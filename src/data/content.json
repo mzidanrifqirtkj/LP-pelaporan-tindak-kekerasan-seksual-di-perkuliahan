@@ -33,26 +33,18 @@
     "escapeLabel": "Exit",
     "laporLabel": "Lapor Sekarang",
     "laporHref": "/lapor",
-    "hotlinePhone": "0821-XXXX-0000",
-    "whatsappUrl": "https://wa.me/62821XXXXXXXX",
+    "hotlinePhone": "0895330480151",
+    "whatsappUrl": "https://wa.me/62895330480151",
     "email": "satgas@ppkpt.ac.id",
-    "address": "Kampus Universitas, Gedung Rektorat",
+    "address": "Kampus Universitas",
     "workingHours": "Senin-Jumat, 08.00 - 16.00"
   },
   "hero": {
     "badge": "Satuan Tugas PPKPT cek",
     "headline": "Kawasan Kampus Bebas Kekerasan",
     "description": "Selamat datang di pusat informasi Satgas PPKPT. Bersama kita ciptakan lingkungan kampus yang aman, nyaman, dan kondusif bagi seluruh sivitas akademika.",
-    "backgroundImage": "/api/images/hero/1781758176807-img-3217.jpg",
+    "backgroundImage": "/api/images/hero/1781965642232-whatsapp-image-2026-06-20-at-22-26-00.jpg",
     "stats": [
-      {
-        "value": "100+",
-        "label": "Laporan Ditangani"
-      },
-      {
-        "value": "24/7",
-        "label": "Hotline Siap Membantu"
-      },
       {
         "value": "Terjamin",
         "label": "Kerahasiaan & Perlindungan"
@@ -163,37 +155,44 @@
   },
   "team": [
     {
-      "name": "Prof. Dr. Ahmad Syarif",
+      "name": "Nur apriyani",
       "role": "Ketua Satgas PPKPT",
-      "imageUrl": "/api/images/team/1781758580761-batman-arkham-origins-joker-games-montreal-rocksteady-studio.jpg"
+      "imageUrl": "/api/images/team/1781963353975-icon-pm.jpg"
     },
     {
-      "name": "Dr. Siti Rahmawati",
-      "role": "Wakil Ketua Satgas"
+      "name": "Irfan Afandi",
+      "role": "Wakil Ketua Satgas",
+      "imageUrl": "/api/images/team/1781963371555-icon-pm.jpg"
     },
     {
-      "name": "Rina Puspita, M.Psi.",
-      "role": "Divisi Pendampingan Psikologis"
+      "name": "Mursalim",
+      "role": "...",
+      "imageUrl": "/api/images/team/1781963384134-icon-pm.jpg"
     },
     {
-      "name": "Dr. Hendra Gunawan, S.H.",
-      "role": "Divisi Hukum & Advokasi"
+      "name": "Stela anastasya",
+      "role": "....",
+      "imageUrl": "/api/images/team/1781963395665-icon-pm.jpg"
     },
     {
-      "name": "Fajar Nugroho, S.Sos.",
-      "role": "Divisi Sosialisasi & Edukasi"
+      "name": "Nurlina",
+      "role": ".....",
+      "imageUrl": "/api/images/team/1781963405123-icon-pm.jpg"
     },
     {
-      "name": "Dr. Nining Triani",
-      "role": "Divisi Pendampingan Medis"
+      "name": "Ditayanti",
+      "role": "......",
+      "imageUrl": "/api/images/team/1781963417032-icon-pm.jpg"
     },
     {
-      "name": "Ahmad Fauzi, S.Kom.",
-      "role": "Divisi Teknologi & Digital"
+      "name": "Asmi",
+      "role": "....",
+      "imageUrl": "/api/images/team/1781963427392-icon-pm.jpg"
     },
     {
-      "name": "Rini Hartati, S.Pd.",
-      "role": "Divisi Administrasi & Data"
+      "name": "Randy",
+      "role": "....",
+      "imageUrl": "/api/images/team/1781963438646-icon-pm.jpg"
     }
   ],
   "alur": {
@@ -237,7 +236,8 @@
     },
     {
       "name": "Formulir Pengaduan Resmi",
-      "desc": "Formulir standar untuk mengajukan laporan pengaduan kekerasan."
+      "desc": "Formulir untuk mengajukan laporan pengaduan kekerasan.",
+      "fileUrl": "https://forms.gle/b8PwyNEbxMNdfSgM6"
     },
     {
       "name": "Dasar Hukum & Peraturan Rektor",
@@ -283,7 +283,7 @@
     "headline": "Kami Siap Mendengar & Membantu Anda",
     "headlineHighlight": "Mendengar",
     "description": "Jangan hadapi sendiri. Tim Satgas PPKPT siap membantu dengan penuh empati, profesional, dan kerahasiaan terjamin.",
-    "heroImage": "/images/counseling.jpg",
+    "heroImage": "/api/images/lapor/1781964568659-pitcre.jpg",
     "heroCaption": "Setiap laporan ditangani dengan empati dan profesionalisme",
     "trustBadges": [
       {
@@ -308,19 +308,19 @@
         "title": "Hotline Darurat",
         "subtitle": "24 jam, siap melayani kapan pun",
         "type": "phone",
-        "value": "0821-XXXX-XXXX",
+        "value": "0895330480151",
         "color": "red"
       },
       {
         "title": "WhatsApp",
         "subtitle": "Chat, privasi lebih terjaga",
         "type": "whatsapp",
-        "value": "https://wa.me/62821XXXXXXXX",
+        "value": "https://wa.me/6282191998971",
         "color": "green"
       },
       {
         "title": "Datang Langsung",
-        "subtitle": "Kantor Satgas PPKPT, Gedung Rektorat",
+        "subtitle": "Kantor Satgas PPKPT Stmy",
         "type": "info",
         "value": "Senin-Jumat, 08.00 - 16.00",
         "color": "blue"
@@ -335,7 +335,7 @@
       {
         "num": 2,
         "title": "Sampaikan Laporan",
-        "desc": "Ceritakan kronologi kejadian dengan tenang. Tidak perlu ragu – kami tidak akan menghakimi. Setiap detail Anda jaga kerahasiaannya."
+        "desc": "Ceritakan kronologi kejadian dengan tenang. Tidak perlu ragu – kami tidak akan menghakimi. Setiap detail Anda dijaga kerahasiaannya."
       },
       {
         "num": 3,
@@ -348,20 +348,7 @@
         "desc": "Investigasi dilakukan secara profesional. Korban mendapat pendampingan penuh hingga proses selesai dan pemulihan tercapai."
       }
     ],
-    "testimonials": [
-      {
-        "quote": "Awalnya saya sangat takut untuk melapor. Tapi tim Satgas sangat supportive dan profesional. Mereka mendampingi saya dari awal hingga akhir. Identitas saya benar-benar dirahasiakan.",
-        "role": "Mahasiswa"
-      },
-      {
-        "quote": "Saya melaporkan teman saya yang mengalami kekerasan. Prosesnya cepat, jelas, dan tidak memakan waktu berbulan-bulan. Yang paling penting, korban merasa aman dan didengarkan.",
-        "role": "Saksi"
-      },
-      {
-        "quote": "Sebagai dosen, saya melihat sendiri bagaimana Satgas menangani kasus dengan sangat serius dan manusiawi. Sistemnya terstruktur, tidak ada yang ditutup-tutupi.",
-        "role": "Tenaga Pendidik"
-      }
-    ],
+    "testimonials": [],
     "confidentiality": {
       "title": "Jaminan Kerahasiaan",
       "items": [
@@ -409,6 +396,6 @@
   "floatingHotline": {
     "title": "Hotline PPKPT",
     "description": "Hubungi kami kapan saja, laporan Anda dijamin kerahasiaannya.",
-    "phone": "0821-XXXX-XXXX"
+    "phone": "0895330480151"
   }
 }
